@@ -1,3 +1,4 @@
+/* Deep Biswas | 200554124 */
 // Constants for query selector
 const studentId = document.querySelector("#myStudentId");
 const customColor = document.querySelector(".custColor");
@@ -6,24 +7,22 @@ const resetAll = document.querySelector(".resetAll");
 const selectImage = document.querySelector("#imageSelect");
 const image = document.querySelector("#images");
 var customNumber = document.querySelector("#customNumber");
-
 // Hide Initial Student ID if Dummy
 if (studentId.textContent === "Dummy") {
     studentId.style.opacity = 0;
 }else{
     studentId.style.opacity = 1;
 }
-
-// function to change bg color from user input and add student id
+// Function to change bg color from user input and add student id
 function changeCustomColor(){
     studentId.textContent = "200554124";
     studentId.style.opacity = 1;
     let theValue = customNumber.value;
     if (theValue === '') {
-        theValue = 101; // a value that will trigger the default case
+        theValue = 101; // A value that will trigger the default case in switch statement
     } else if (theValue < 0 || theValue > 100){
         document.body.style.backgroundColor = "red";
-        return; // exit the function early
+        return; // Exit the function early if the value is out of range
     }
     switch (true) {
         case (theValue >= 0 && theValue <= 20):
@@ -45,57 +44,48 @@ function changeCustomColor(){
             document.body.style.backgroundColor = "white";
     }
 }
-
-// function to change bg color from random no.
+// Function to change bg color from random no.
 function changeRandomColor() {
     let randomValue = Math.floor(Math.random() * 100);
     customNumber.textContent = randomValue;
     customNumber.value = randomValue; // assigns the random number to customNumber
     changeCustomColor(); // calls the function to change bg color
 }
-
 // function to reset all
 function resetAllFunction() {
     studentId.textContent = "Dummy";
     studentId.style.opacity = 0;
     customNumber.value = '';
     document.body.style.backgroundColor = "white";
+    image.src = "";
+    selectImage.value = "";
+    addList();
 }
-// function to generate options for select list
+// Function to generate options for select list
 document.addEventListener('DOMContentLoaded', addList);
 function addList() {
     // Array of image URLs
     let imageUrls = ['./img/ts-img-1.png', './img/ts-img-2.png', './img/ts-img-3.png', './img/ts-img-4.png', './img/ts-img-5.png'];
-
-    // Select the select element where you want to add the options
-    let selectElement = document.querySelector('#imageSelect');
-
-    // Check if options already exist, if so, return to prevent adding more options
-    if (selectElement.options.length > 0) {
-        return;
-    }
-
-    // Loop through the array of image URLs
-    for (let i = 0; i < imageUrls.length; i++) {
-        // Create a new option element
-        let option = document.createElement('option');
-
-        // Set the value and text of the option element to the current image URL
-        option.value = imageUrls[i];
-        option.text = 'Image ' + (i + 1);
-
-        // Add the option element to the select element
-        selectElement.add(option);
+    if (selectImage.length !== 6) {
+        let count = 1;
+        for (const img of imageUrls) {
+            var option = document.createElement("option");
+            option.textContent = `Image ${count}`; // Add names to each option
+            option.value = img;
+            selectImage.appendChild(option);
+            count++;
+        }
     }
 }
-
 // function to change image
 function changeImage() {
-
+    image.src = selectImage.value;
+    studentId.textContent = "200554124";
+    studentId.style.opacity = 1;
 }
-
 // event listeners for on click event of buttons and select
 customColor.addEventListener("click", changeCustomColor);
 randomColor.addEventListener("click", changeRandomColor);
 resetAll.addEventListener("click", resetAllFunction);
 // event listeners for on change event of select
+selectImage.addEventListener("change", changeImage);

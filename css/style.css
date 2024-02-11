@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'SF-Pro';
+    src: url(../fonts/SF-Pro.otf);
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'SF-Pro', sans-serif;
+}
+.first-row p{
+    text-align: center;
+    font-size: 25px;
+}
+.second-row{
+    font-size: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.second-row input{
+    width: 80px;
+    height: 10px;
+    border: 1px dashed #000;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+}
+.third-row{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.third-row button{
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.third-row button:hover{
+    color: #f8ea09;
+}
+.third-row button:active{
+    transform: scale(0.95);
+}
+.fourth-row{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 23px;
+}
+.fourth-row select{
+    padding: 4px;
+    font-size: 20px;
+    border: 1px dashed #000;
+    border-radius: 5px;
+}
+.fourth-row select option{
+    font-size: 22px;
+}
+.fifth-row{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.fifth-row img{
+    border-radius: 5px;
+    width: 50vw;
+    height: auto;
+}
